@@ -60,7 +60,7 @@ def main():
         playAfter = True
     else:
         playAfter = False
-    if outputTitle[-4:] == ".mp3"
+    if outputTitle[-4:] == ".mp3":
         outputTitle = outputTitle[:-4]
     prep = prep.lower()
     for root, dirs, files in os.walk("."):  
@@ -71,6 +71,6 @@ def main():
                 compiledText += str(" " + getText(filename, thresh=False, blur=True))
             elif prep == 'n':
                 compiledText += str(" " + getText(filename, thresh=False, blur=False))
-    convertToSpeech(compiledText, outputTitle)
+    convertToSpeech(compiledText, outputTitle, playAfter)
 
 main()
