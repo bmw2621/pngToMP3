@@ -58,7 +58,7 @@ def main():
     playAfter = input("Play file after compiling? Y/N   ")
     if playAfter == "Y":
         playAfter = True
-    else
+    else:
         playAfter = False
     if outputTitle[-4:] == ".mp3"
         outputTitle = outputTitle[:-4]
