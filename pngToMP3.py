@@ -8,7 +8,13 @@ import cv2
 import os
 from gtts import gTTS 
 
-def getText(fileToConvert, thresh=True, blur=False): 
+def getText(fileToConvert, thresh=True, blur=False):
+    """getText function loads the image on the path passed to the function, converts it to
+    greyscale, and extracts text using pytesseract package (package is an interface with tesseract
+    software which must be installed separately).  If thresh arguement default is set to true, and 
+    should be used if the loaded image needs to be sharpened.  If the blur arguement default is set 
+    to false, and should be set to true if the passed image requires moise reduction to prevent 
+    interference with character recognition"""
   
     # load the example image and convert it to grayscale
     image = cv2.imread(fileToConvert)
@@ -38,6 +44,10 @@ def getText(fileToConvert, thresh=True, blur=False):
     return mytext
 
 def convertToSpeech(mytext, outputTitle, playAfter):
+    """convertToSpeech function receives text to be converted to audio file, the output filename, and the option to play
+    the file after the conversion.  Line 62 system call should reflect the appropriate command to run the preferred playback
+    software (default is mpg123)"""
+  
     # Language in which you want to convert 
     language = 'en'
   
@@ -72,5 +82,6 @@ def main():
             elif prep == 'n':
                 compiledText += str(" " + getText(filename, thresh=False, blur=False))
     convertToSpeech(compiledText, outputTitle, playAfter)
-
-main()
+    
+if __name__ == "__main__":
+    main()
