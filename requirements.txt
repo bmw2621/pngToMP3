@@ -1,5 +1,5 @@
 pillow==6.2.1
 pytesseract==0.3.2
 opencv-python==4.1.2.30
-gTTS==2.0.4
+gTTS==2.1.1
 gTTS-token==1.1.3
